@@ -164,6 +164,12 @@
       margin: 10px 0 18px;
     }
 
+    .card .btn {
+      width: 100%;
+      display: block !important;
+      text-align: center;
+    }
+
     .about {
       background: var(--tan);
       display: grid;
@@ -459,6 +465,12 @@
 
     function renderProducts() {
       const productsEl = document.getElementById('products');
+      const productPages = {
+        1: '/product-walnut.html',
+        2: '/product-maple.html',
+        3: '/product-cherry.html',
+        4: '/product-custom.html'
+      };
       productsEl.innerHTML = products.map(product => `
         <div class="card">
           <img src="${product.image}" alt="${product.name}" />
@@ -466,7 +478,7 @@
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <div class="price">${money(product.price)}</div>
-            <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
+            <a href="${productPages[product.id]}" class="btn" style="display: inline-block;">View Details</a>
           </div>
         </div>
       `).join('');

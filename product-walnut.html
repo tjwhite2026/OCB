@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walnut Chopping Board | Ohio Chopping Boards</title>
+  <style>
+    :root {
+      --dark: #1f1712;
+      --wood: #9a6438;
+      --wood-dark: #754722;
+      --cream: #fff8ef;
+      --tan: #efe0ce;
+      --green: #314d3b;
+      --muted: #74675c;
+      --line: #eadbc9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+    }
+
+    header {
+      background: linear-gradient(rgba(31, 23, 18, .68), rgba(31, 23, 18, .68)),
+        url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 24px 7%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+
+    nav a, nav button {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 700;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .cart-pill {
+      background: var(--wood);
+      padding: 10px 16px;
+      border-radius: 999px;
+    }
+
+    .breadcrumb {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    section { padding: 48px 7%; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .main-image {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 12px 32px rgba(31, 23, 18, .15);
+      object-fit: cover;
+      height: 500px;
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .thumbnail {
+      cursor: pointer;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 80px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+      border-color: var(--wood);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info h1 {
+      font-size: 2.2rem;
+      margin: 0 0 12px;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--green);
+      margin: 20px 0 30px;
+    }
+
+    .rating {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .description {
+      line-height: 1.7;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .features {
+      background: var(--tan);
+      padding: 20px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+    }
+
+    .features h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .features li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .quantity-selector label {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .quantity-selector button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .quantity-selector input {
+      width: 60px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--wood);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn:hover { background: var(--wood-dark); transform: translateY(-1px); }
+    .btn.secondary { background: var(--green); }
+
+    .related {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px solid var(--line);
+    }
+
+    .related h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .related-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .related-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(31, 23, 18, .08);
+    }
+
+    .related-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .related-card-body {
+      padding: 16px;
+    }
+
+    .related-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .related-card a {
+      color: var(--wood);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: #130e0b;
+      color: #d7c9bc;
+      text-align: center;
+      padding: 24px 7%;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid { grid-template-columns: 1fr; gap: 30px; }
+      .main-image { height: 300px; }
+      nav { flex-direction: column; align-items: flex-start; }
+      nav a, nav button { margin: 0 12px 0 0; }
+      .thumbnails { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">Ohio Chopping Boards</a>
+      <div>
+        <a href="/#shop">Shop</a>
+        <a href="/#about">About</a>
+        <button class="cart-pill" onclick="window.location='/#checkout'">Cart: <span id="cartCount">0</span></button>
+      </div>
+    </nav>
+    <div class="breadcrumb">
+      <a href="/">Home</a> / Walnut Chopping Board
+    </div>
+  </header>
+
+  <section>
+    <div class="product-grid">
+      <div class="gallery">
+        <img id="mainImage" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1000&q=80" alt="Walnut Chopping Board" class="main-image" />
+        <div class="thumbnails">
+          <div class="thumbnail active" onclick="changeImage(0)">
+            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=200&q=80" alt="View 1" />
+          </div>
+          <div class="thumbnail" onclick="changeImage(1)">
+            <img src="https://images.unsplash.com/photo-1578500494198-246f612d03b3?auto=format&fit=crop&w=200&q=80" alt="View 2" />
+          </div>
+          <div class="thumbnail" onclick="changeImage(2)">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f7?auto=format&fit=crop&w=200&q=80" alt="View 3" />
+          </div>
+          <div class="thumbnail" onclick="changeImage(3)">
+            <img src="https://images.unsplash.com/photo-1577003833154-a92bbd3e0c3d?auto=format&fit=crop&w=200&q=80" alt="View 4" />
+          </div>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h1>Walnut Chopping Board</h1>
+        <div class="rating">⭐⭐⭐⭐⭐ (24 reviews)</div>
+        <div class="price">$89.00</div>
+
+        <p class="description">
+          Our signature Walnut Chopping Board combines elegance with functionality. Crafted from premium American walnut hardwood, this board features a rich dark grain and smooth finish perfect for food prep, serving, or as a kitchen showpiece.
+        </p>
+
+        <div class="features">
+          <h3>Features & Benefits</h3>
+          <ul>
+            <li>Premium American walnut hardwood</li>
+            <li>Food-safe oil and wax finish</li>
+            <li>13" x 18" dimensions</li>
+            <li>Hand-sanded smooth surface</li>
+            <li>Reversible for extended life</li>
+            <li>Naturally antimicrobial wood</li>
+            <li>Made in Ohio, USA</li>
+            <li>Lifetime warranty</li>
+          </ul>
+        </div>
+
+        <div class="quantity-selector">
+          <label for="qty">Quantity:</label>
+          <button onclick="changeQty(-1)">−</button>
+          <input id="qty" type="number" value="1" min="1" max="99" />
+          <button onclick="changeQty(1)">+</button>
+        </div>
+
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn secondary" style="margin-top: 12px; background: #999;" onclick="window.location='/'">Continue Shopping</button>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 12px; font-size: 0.9rem; line-height: 1.6;">
+          <strong>Care Instructions:</strong> Hand wash with warm water and mild soap. Dry immediately. Periodically apply food-safe mineral oil to maintain finish. Do not soak or place in dishwasher.
+        </div>
+      </div>
+    </div>
+
+    <div class="related">
+      <h2>Other Boards You Might Like</h2>
+      <div class="related-products">
+        <div class="related-card">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=300&q=80" alt="Maple Board" />
+          <div class="related-card-body">
+            <h3>Maple Cutting Board</h3>
+            <div style="color: var(--green); font-weight: 900; margin: 8px 0;">$75.00</div>
+            <a href="/product-maple.html">View Details →</a>
+          </div>
+        </div>
+        <div class="related-card">
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=300&q=80" alt="Cherry Board" />
+          <div class="related-card-body">
+            <h3>Cherry Charcuterie Board</h3>
+            <div style="color: var(--green); font-weight: 900; margin: 8px 0;">$115.00</div>
+            <a href="/product-cherry.html">View Details →</a>
+          </div>
+        </div>
+        <div class="related-card">
+          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80" alt="Custom Board" />
+          <div class="related-card-body">
+            <h3>Custom Engraved Board</h3>
+            <div style="color: var(--green); font-weight: 900; margin: 8px 0;">$135.00</div>
+            <a href="/product-custom.html">View Details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Ohio Chopping Boards | Handmade cutting boards, chopping boards, and charcuterie boards.
+  </footer>
+
+  <script>
+    const images = [
+      'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1578500494198-246f612d03b3?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1559056199-641a0ac8b3f7?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1577003833154-a92bbd3e0c3d?auto=format&fit=crop&w=1000&q=80'
+    ];
+
+    function changeImage(index) {
+      document.getElementById('mainImage').src = images[index];
+      document.querySelectorAll('.thumbnail').forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+      });
+    }
+
+    function changeQty(amount) {
+      const input = document.getElementById('qty');
+      input.value = Math.max(1, parseInt(input.value) + amount);
+    }
+
+    function addToCart() {
+      const qty = parseInt(document.getElementById('qty').value);
+      const product = {
+        id: 1,
+        name: 'Walnut Chopping Board',
+        price: 89,
+        qty: qty,
+        image: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80'
+      };
+
+      let cart = JSON.parse(localStorage.getItem('ohioBoardCart')) || [];
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem('ohioBoardCart', JSON.stringify(cart));
+      alert(`Added ${qty} board(s) to cart!`);
+      window.location = '/#checkout';
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('ohioBoardCart')) || [];
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCount').textContent = count;
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>
