@@ -45,6 +45,16 @@
       font-size: 1.5rem;
       font-weight: 900;
       letter-spacing: .5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo img {
+      height: 40px;
+      width: 40px;
     }
 
     nav a, nav button {
@@ -310,7 +320,10 @@
 <body>
   <header>
     <nav>
-      <a href="/" class="logo">Ohio Chopping Boards</a>
+      <a href="/" class="logo">
+        <img src="/logo.svg" alt="Ohio Chopping Boards logo" />
+        Ohio Chopping Boards
+      </a>
       <div>
         <a href="/#shop">Shop</a>
         <a href="/#about">About</a>
