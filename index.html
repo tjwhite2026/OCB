@@ -175,9 +175,17 @@
     }
 
     .card .btn {
-      width: 100%;
-      display: block !important;
+      width: auto;
+      display: inline-flex !important;
+      justify-content: center;
       text-align: center;
+    }
+
+    .card-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
     }
 
     .about {
@@ -331,7 +339,7 @@
   <header>
     <nav>
       <a href="/" class="logo">
-        <img src="/OCB%20Logo.png" alt="Ohio Chopping Boards logo" />
+        <img src="logo.png" alt="Ohio Chopping Boards logo" />
         Ohio Chopping Boards
       </a>
       <div>
@@ -491,7 +499,10 @@
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <div class="price">${money(product.price)}</div>
-            <a href="${productPages[product.id]}" class="btn" style="display: inline-block;">View Details</a>
+            <div class="card-buttons">
+              <a href="${productPages[product.id]}" class="btn">View Details</a>
+              <button class="btn secondary" onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
           </div>
         </div>
       `).join('');

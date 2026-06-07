@@ -27,7 +27,7 @@
 
     header {
       background: linear-gradient(rgba(31, 23, 18, .68), rgba(31, 23, 18, .68)),
-        url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80');
+        url('https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
       color: white;
@@ -195,6 +195,30 @@
       font-weight: bold;
     }
 
+    .image-gallery {
+      margin-top: 32px;
+    }
+
+    .image-gallery h2 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(31, 23, 18, .1);
+    }
+
     .quantity-selector {
       display: flex;
       align-items: center;
@@ -310,7 +334,7 @@
   <header>
     <nav>
       <a href="/" class="logo">
-        <img src="/OCB%20Logo.png" alt="Ohio Chopping Boards logo" />
+        <img src="logo.png" alt="Ohio Chopping Boards logo" />
         Ohio Chopping Boards
       </a>
       <div>
@@ -327,19 +351,19 @@
   <section>
     <div class="product-grid">
       <div class="gallery">
-        <img id="mainImage" src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=1000&q=80" alt="Maple Cutting Board" class="main-image" />
+        <img id="mainImage" src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Top%20clean.jpg.png" alt="Maple Cutting Board" class="main-image" />
         <div class="thumbnails">
           <div class="thumbnail active" onclick="changeImage(0)">
-            <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=200&q=80" alt="View 1" />
+            <img src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Top%20clean.jpg.png" alt="Maple board top view" />
           </div>
           <div class="thumbnail" onclick="changeImage(1)">
-            <img src="https://images.unsplash.com/photo-1576856426514-86a3f5f77dcc?auto=format&fit=crop&w=200&q=80" alt="View 2" />
+            <img src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Closeup%20clean.jpg.png" alt="Maple board closeup" />
           </div>
           <div class="thumbnail" onclick="changeImage(2)">
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=200&q=80" alt="View 3" />
+            <img src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Bottom%20clean.jpg.png" alt="Maple board bottom view" />
           </div>
           <div class="thumbnail" onclick="changeImage(3)">
-            <img src="https://images.unsplash.com/photo-1585521537271-b7e7a51c2a18?auto=format&fit=crop&w=200&q=80" alt="View 4" />
+            <img src="https://images.unsplash.com/photo-1491021163868-3ae3f3b06b55?auto=format&fit=crop&w=200&q=80" alt="Maple board breakfast setup" />
           </div>
         </div>
       </div>
@@ -383,6 +407,16 @@
       </div>
     </div>
 
+    <div class="image-gallery">
+      <h2>Image Gallery</h2>
+      <div class="image-grid">
+        <img src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Top%20clean.jpg.png" alt="Maple board top view" />
+        <img src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Closeup%20clean.jpg.png" alt="Maple board closeup" />
+        <img src="https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Bottom%20clean.jpg.png" alt="Maple board bottom view" />
+        <img src="https://images.unsplash.com/photo-1491021163868-3ae3f3b06b55?auto=format&fit=crop&w=1000&q=80" alt="Maple board breakfast setup" />
+      </div>
+    </div>
+
     <div class="related">
       <h2>Other Boards You Might Like</h2>
       <div class="related-products">
@@ -420,10 +454,10 @@
 
   <script>
     const images = [
-      'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1576856426514-86a3f5f77dcc?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1585521537271-b7e7a51c2a18?auto=format&fit=crop&w=1000&q=80'
+      'https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Top%20clean.jpg.png',
+      'https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Closeup%20clean.jpg.png',
+      'https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Bottom%20clean.jpg.png',
+      'https://images.unsplash.com/photo-1491021163868-3ae3f3b06b55?auto=format&fit=crop&w=1000&q=80'
     ];
 
     function changeImage(index) {
@@ -445,7 +479,7 @@
         name: 'Maple Cutting Board',
         price: 75,
         qty: qty,
-        image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=900&q=80'
+        image: 'https://gpk7f9vfck2mj2rs.public.blob.vercel-storage.com/Charcuterie%20Board%2023.75%20x%2020.75%20Top%20clean.jpg.png'
       };
 
       let cart = JSON.parse(localStorage.getItem('ohioBoardCart')) || [];

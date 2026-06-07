@@ -27,7 +27,7 @@
 
     header {
       background: linear-gradient(rgba(31, 23, 18, .68), rgba(31, 23, 18, .68)),
-        url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1600&q=80');
+        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
       color: white;
@@ -195,6 +195,30 @@
       font-weight: bold;
     }
 
+    .image-gallery {
+      margin-top: 32px;
+    }
+
+    .image-gallery h2 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(31, 23, 18, .1);
+    }
+
     .quantity-selector {
       display: flex;
       align-items: center;
@@ -321,7 +345,7 @@
   <header>
     <nav>
       <a href="/" class="logo">
-        <img src="/OCB%20Logo.png" alt="Ohio Chopping Boards logo" />
+        <img src="logo.png" alt="Ohio Chopping Boards logo" />
         Ohio Chopping Boards
       </a>
       <div>
@@ -338,19 +362,19 @@
   <section>
     <div class="product-grid">
       <div class="gallery">
-        <img id="mainImage" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80" alt="Custom Engraved Board" class="main-image" />
+        <img id="mainImage" src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1000&q=80" alt="Custom Engraved Board" class="main-image" />
         <div class="thumbnails">
           <div class="thumbnail active" onclick="changeImage(0)">
-            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=200&q=80" alt="View 1" />
+            <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=200&q=80" alt="Engraved board top view" />
           </div>
           <div class="thumbnail" onclick="changeImage(1)">
-            <img src="https://images.unsplash.com/photo-1578500494198-246f612d03b3?auto=format&fit=crop&w=200&q=80" alt="View 2" />
+            <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=200&q=80" alt="Custom gift board close-up" />
           </div>
           <div class="thumbnail" onclick="changeImage(2)">
-            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f7?auto=format&fit=crop&w=200&q=80" alt="View 3" />
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=200&q=80" alt="Personalized engraving detail" />
           </div>
           <div class="thumbnail" onclick="changeImage(3)">
-            <img src="https://images.unsplash.com/photo-1577003833154-a92bbd3e0c3d?auto=format&fit=crop&w=200&q=80" alt="View 4" />
+            <img src="https://images.unsplash.com/photo-1473654729523-203e25dfda10?auto=format&fit=crop&w=200&q=80" alt="Custom board celebration" />
           </div>
         </div>
       </div>
@@ -398,6 +422,16 @@
       </div>
     </div>
 
+    <div class="image-gallery">
+      <h2>Image Gallery</h2>
+      <div class="image-grid">
+        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1000&q=80" alt="Engraved board top view" />
+        <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1000&q=80" alt="Custom gift board close-up" />
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80" alt="Personalized engraving detail" />
+        <img src="https://images.unsplash.com/photo-1473654729523-203e25dfda10?auto=format&fit=crop&w=1000&q=80" alt="Custom board celebration" />
+      </div>
+    </div>
+
     <div class="related">
       <h2>Other Boards You Might Like</h2>
       <div class="related-products">
@@ -435,10 +469,10 @@
 
   <script>
     const images = [
-      'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1578500494198-246f612d03b3?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1559056199-641a0ac8b3f7?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1577003833154-a92bbd3e0c3d?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1473654729523-203e25dfda10?auto=format&fit=crop&w=1000&q=80'
     ];
 
     function changeImage(index) {
@@ -460,7 +494,7 @@
         name: 'Custom Engraved Board',
         price: 135,
         qty: qty,
-        image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80'
+        image: 'https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=900&q=80'
       };
 
       let cart = JSON.parse(localStorage.getItem('ohioBoardCart')) || [];
